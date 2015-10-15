@@ -1,23 +1,34 @@
 var calc = {
-  add: function (addend1, addend2) {
-    return addend1 + addend2;
+  value: 0,
+  add: function(addend){
+    this.value += addend;
+    this.showValue();
   },
-  subtract: function (minuend, subtrahend) {
-    return minuend - subtrahend;
+  subtract: function(subtrahend){
+    this.value -= subtrahend;
+    this.showValue();
   },
-  multiply: function (multiplicand, multiplier) {
-    return multiplicand * multiplier;
+  multiply: function(multiplier){
+    this.value *= multiplier;
+    this.showValue();
   },
-  divide: function (dividend, divisor) {
-    return dividend / divisor;
+  divide: function(divisor){
+    this.value /= divisor;
+    this.showValue();
   },
-  exponentiate: function (base, exponent) {
-    return Math.pow(base, exponent);
+  exponentiate: function(exponent){
+    this.value = Math.pow(this.value, exponent);
+    this.showValue();
+  },
+  clear: function(){
+    this.value = 0;
+    this.showValue();
+  },
+  showValue: function(){
+    console.log( "====================")
+    console.log( "Current value: " + this.value);
+    console.log( "====================")
   }
 };
 
-console.log(calc.add(4, 5));
-console.log(calc.subtract(4, 5));
-console.log(calc.multiply(4, 5));
-console.log(calc.divide(4, 5));
-console.log(calc.exponentiate(4, 5));
+calc.showValue();
